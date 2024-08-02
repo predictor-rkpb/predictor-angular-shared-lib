@@ -8,3 +8,4 @@
 
 export * from './lib/user-mgmt/user-mgmt.module'
 export * from './lib/user-mgmt/services/user-details.service'
+export * from './lib/user-mgmt/guards/auth.guard'

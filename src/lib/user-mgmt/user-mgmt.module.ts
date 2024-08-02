@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KeycloakAngularModule } from 'keycloak-angular';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -9,6 +10,7 @@ import { KeycloakAngularModule } from 'keycloak-angular';
   imports: [
     CommonModule,
     KeycloakAngularModule
-  ]
+  ],
+  providers: [AuthGuard]
 })
 export class UserMgmtModule { }
