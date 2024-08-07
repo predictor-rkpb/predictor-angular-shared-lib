@@ -41,7 +41,6 @@ export class UserDetailsService {
       this.tokenParsed = this.keycloak.getKeycloakInstance().tokenParsed;
       this.group = this.tokenParsed ? (this.tokenParsed['groups'] ? this.tokenParsed['groups'][0] : null) : null
       this.group = this.group?.substring(1, this.group.length)
-      console.log(this.tokenParsed)
     }
 
     return this.group
