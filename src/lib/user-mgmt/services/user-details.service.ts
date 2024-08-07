@@ -31,10 +31,17 @@ export class UserDetailsService {
     return this.keycloak.isLoggedIn()
   }
 
+  getUserPicture() : string | undefined
+  {
+    return this.tokenParsed ? this.tokenParsed['picture'] : ''
+  }
+
   async _loadUserGroupFromToken() : Promise<string | undefined> {
     if (!this.tokenParsed && this.keycloak.isLoggedIn()) {
       this.tokenParsed = this.keycloak.getKeycloakInstance().tokenParsed;
       this.group = this.tokenParsed ? (this.tokenParsed['groups'] ? this.tokenParsed['groups'][0] : null) : null
+      this.group = this.group?.substring(1, this.group.length)
+      console.log(this.tokenParsed)
     }
 
     return this.group
